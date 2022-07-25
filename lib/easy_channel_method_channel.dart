@@ -55,8 +55,8 @@ class MethodChannelEasyChannel extends EasyChannelPlatform {
   }
 
   void _didRead(Object? message) {
-    debugPrint('[flutter channel] didRead: start ${message.runtimeType}');
     if (message is Map<String, dynamic>) {
+      debugPrint('[flutter channel] didRead:  $message');
       String path = message['path'] as String? ?? 'unknow';
       String method = message['method'] as String? ?? 'unknow';
       String idenfy = message['id'] as String? ?? 'unknow';

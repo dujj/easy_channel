@@ -7,7 +7,6 @@ public class SwiftEasyChannelPlugin: NSObject, FlutterPlugin {
       let instance = SwiftEasyChannelPlugin(messenger: registrar.messenger())
       registrar.publish(instance)
       
-      debugPrint("register done")
   }
 
   class GetObserver: NSObject {
@@ -98,8 +97,6 @@ public class SwiftEasyChannelPlugin: NSObject, FlutterPlugin {
                     result = jsonObject as? [String: Any]
                 }
                 
-                debugPrint("[Nav channel] path: \(path) method: \(method) idenfy: \(idenfy) parameters: \(result ?? ["": ""])")
-                
                 switch methodType {
                 case .request:
                     let observer = getObserversMap[path]
@@ -130,7 +127,6 @@ public class SwiftEasyChannelPlugin: NSObject, FlutterPlugin {
     }
     
     private func _send(_ path: String, method: Method, idenfy: String? = nil, parameters: [String: Any]? = nil) {
-        debugPrint("[Nav channel] path: \(path) method: \(method) idenfy: \(idenfy ?? "") parameters: \(parameters ?? ["": ""])")
         writerQueue.async {
             var request = [String: Any]()
             request["path"] = path
