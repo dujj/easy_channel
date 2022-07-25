@@ -45,7 +45,6 @@ class MethodChannelEasyChannel extends EasyChannelPlatform {
 
   MethodChannelEasyChannel() {
     _readerChannel.setMessageHandler((message) async {
-      debugPrint('[flutter channel] didRead: $message');
       try {
         _didRead(message);
       } catch (e) {
