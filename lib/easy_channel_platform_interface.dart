@@ -14,7 +14,7 @@ abstract class EasyChannelPlatform extends PlatformInterface {
   ///
   /// Defaults to [MethodChannelEasyChannel].
   static EasyChannelPlatform get instance => _instance;
-  
+
   /// Platform-specific implementations should set this with their own
   /// platform-specific class that extends [EasyChannelPlatform] when
   /// they register themselves.
@@ -23,7 +23,20 @@ abstract class EasyChannelPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<Map<String, dynamic>?> get(String path, [Map<String, dynamic>? data]) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  void post(String path, [Map<String, dynamic>? data]) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  void addObserver(String path,
+      Future<Map<String, dynamic>?> Function(Map<String, dynamic>?) callback) {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
+
+  void removeObserver(String path) {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 }
