@@ -8,7 +8,6 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import java.nio.channels.AsynchronousChannel
 import java.util.*
-import io.flutter.Log
 import org.json.JSONObject
 
 /** EasyChannelPlugin */
@@ -38,7 +37,6 @@ class EasyChannelPlugin: FlutterPlugin {
     readerChannel.setMessageHandler { message, reply ->
       onMessage(message, reply)
     }
-    Log.e("onAttachedToEngine", "-------------")
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
@@ -53,8 +51,6 @@ class EasyChannelPlugin: FlutterPlugin {
       val idenfy  = message.optString("id")
       val data = message.optString("data")
 
-
-        println("path: $path, method: $method data: $data")
         when (method) {
           Method.REQUEST.rawValue -> {
             val observer = getObserversMap[path]
