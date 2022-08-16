@@ -1,5 +1,5 @@
 name: easy_channel
-description: A new Flutter plugin project.
+description: easy channel like socket, create write and read stream like http protocol.
 version: 0.0.1
 homepage: https://github.com/dujj/easy_channel.git
 
